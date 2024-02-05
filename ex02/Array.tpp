@@ -1,5 +1,5 @@
 template <typename T>
-Array<T>::Array() : arr(NULL), len(0) {}
+Array<T>::Array() : arr(new T[0]), len(0) {}
 
 template <typename T>
 Array<T>::Array(unsigned int n) : arr(new T[n]), len(n) {
@@ -28,7 +28,7 @@ Array<T>& Array<T>::operator=(const Array<T>& rhs) {
 
 template <typename T>
 T& Array<T>::operator[](unsigned int index) const {
-  if (index >= len) throw std::out_of_range("Index out of range");
+  if (index >= len || index < 0) throw std::out_of_range("Index out of range");
   return arr[index];
 }
 

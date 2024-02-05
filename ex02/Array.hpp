@@ -1,6 +1,8 @@
 #ifndef __ARRAY_HPP
 #define __ARRAY_HPP
 
+#include <cstdlib>
+#include <ctime>
 #include <iostream>
 
 template <typename T>
