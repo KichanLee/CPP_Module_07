@@ -3,11 +3,24 @@
 
 #include <iostream>
 
-template <typename T1, typename T2, typename T3>
+// template <typename T1, typename T2>
+// void iter(const T1 ptr, size_t len, const T2 func) {
+//   for (size_t i = 0; i < len; ++i) {
+//     func(ptr[i]);
+//   }
+// }
 
-void iter(T1 ptr, T2 len, T3 func) {
-  for (size_t i = 0; (T2)i < len; ++i) {
-    func((*ptr)[i]);
+template <typename T>
+void iter(T* ptr, size_t len, void (*func)(T&)) {
+  for (size_t i = 0; i < len; ++i) {
+    func(ptr[i]);
+  }
+}
+
+template <typename T>
+void iter(const T* ptr, size_t len, void (*func)(const T&)) {
+  for (size_t i = 0; i < len; ++i) {
+    func(ptr[i]);
   }
 }
 #endif
